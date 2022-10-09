@@ -1,25 +1,25 @@
 //
-//  PWRouter.m
+//  MYRouter.m
 //  PWNote
 //
-//  Created by 明妍 on 2018/11/25.
-//  Copyright © 2018 明妍. All rights reserved.
+//  Created by MingYan on 2018/11/25.
+//  Copyright © 2018 MingYan. All rights reserved.
 //
 
-#import "PWRouter.h"
+#import "MYRouter.h"
 #import "MYUtils.h"
-#import "PWRouterAction.h"
+#import "MYRouterAction.h"
 
-@interface PWRouter ()
+@interface MYRouter ()
 
 @property (nonatomic, strong) NSMutableDictionary *routerDict;
 @property (nonatomic, weak) UINavigationController *navigationController;
 
 @end
 
-@implementation PWRouter
+@implementation MYRouter
 
-static PWRouter *__onetimeClass;
+static MYRouter *__onetimeClass;
 
 
 #pragma mark - --------------------dealloc ------------------
@@ -46,7 +46,7 @@ static PWRouter *__onetimeClass;
     NSAssert(URL, @"url is not NSURL");
     if ([URL.scheme isEqualToString:@"pwnote"] &&
         [self.routerDict.allKeys containsObject:[URL.host lowercaseString]]) {
-        PWRouterAction *action = self.routerDict[URL.host];
+        MYRouterAction *action = self.routerDict[URL.host];
         if (action.actionBlock) {
             action.actionBlock(self.navigationController);
         }
@@ -60,7 +60,7 @@ static PWRouter *__onetimeClass;
     }
 }
 
-- (void)registerRouterWithURLAddress:(NSString *)address action:(PWRouterAction *)action {
+- (void)registerRouterWithURLAddress:(NSString *)address action:(MYRouterAction *)action {
     NSAssert(address.length != 0, @"address is empty");
     self.routerDict[address] = action;
     action.address = address;   

@@ -1,6 +1,3 @@
-use_frameworks!
-
-platform :ios, '8.0'
 
 target 'MYRouter_Example' do
   pod 'MYRouter', :path => '../'

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -21,9 +21,9 @@
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
+		810169B1DA1D60612E8ED101 /* libPods-MYRouter_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CF5B4EC285351DA4703AAD8 /* libPods-MYRouter_Example.a */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
-		931E924707EB5C9F54907B96 /* Pods_MYRouter_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF7037D06FC16708AAE89B85 /* Pods_MYRouter_Example.framework */; };
-		CAB565A56AAA23DF29B2187A /* Pods_MYRouter_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F50B335C702B284BAC9CA147 /* Pods_MYRouter_Tests.framework */; };
+		8C19B14E8FAC84B5ABB14E88 /* libPods-MYRouter_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EB317A788A41C8B446B216C /* libPods-MYRouter_Tests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,8 +38,9 @@
 
 /* Begin PBXFileReference section */
 		0543D8375D3B134B0CF819AB /* Pods-MYRouter_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MYRouter_Tests.release.xcconfig"; path = "Target Support Files/Pods-MYRouter_Tests/Pods-MYRouter_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		3C8ADC5BC37CABE0D434EEE9 /* MYRouter.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = MYRouter.podspec; path = ../MYRouter.podspec; sourceTree = "<group>"; };
+		3C8ADC5BC37CABE0D434EEE9 /* MYRouter.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = MYRouter.podspec; path = ../MYRouter.podspec; sourceTree = "<group>"; };
 		4FCD0252EAABDB0814B57365 /* Pods-MYRouter_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MYRouter_Tests.debug.xcconfig"; path = "Target Support Files/Pods-MYRouter_Tests/Pods-MYRouter_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		5CF5B4EC285351DA4703AAD8 /* libPods-MYRouter_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MYRouter_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58A195388D20070C39A /* MYRouter_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MYRouter_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -60,13 +61,12 @@
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7EB317A788A41C8B446B216C /* libPods-MYRouter_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MYRouter_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A23E2A181EF17DF73952BDFB /* Pods-MYRouter_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MYRouter_Example.debug.xcconfig"; path = "Target Support Files/Pods-MYRouter_Example/Pods-MYRouter_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		A2FDA2F76A8EB416A35B3AA4 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		B9133C3814F430B19E6C620F /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		A2FDA2F76A8EB416A35B3AA4 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		B9133C3814F430B19E6C620F /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		D96DCA890E97BD3AAF2842C7 /* Pods-MYRouter_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MYRouter_Example.release.xcconfig"; path = "Target Support Files/Pods-MYRouter_Example/Pods-MYRouter_Example.release.xcconfig"; sourceTree = "<group>"; };
-		DF7037D06FC16708AAE89B85 /* Pods_MYRouter_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MYRouter_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F50B335C702B284BAC9CA147 /* Pods_MYRouter_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MYRouter_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,7 +77,7 @@
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
-				931E924707EB5C9F54907B96 /* Pods_MYRouter_Example.framework in Frameworks */,
+				810169B1DA1D60612E8ED101 /* libPods-MYRouter_Example.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,7 +88,7 @@
 				6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */,
 				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
-				CAB565A56AAA23DF29B2187A /* Pods_MYRouter_Tests.framework in Frameworks */,
+				8C19B14E8FAC84B5ABB14E88 /* libPods-MYRouter_Tests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,8 +123,8 @@
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
 				6003F5AF195388D20070C39A /* XCTest.framework */,
-				DF7037D06FC16708AAE89B85 /* Pods_MYRouter_Example.framework */,
-				F50B335C702B284BAC9CA147 /* Pods_MYRouter_Tests.framework */,
+				5CF5B4EC285351DA4703AAD8 /* libPods-MYRouter_Example.a */,
+				7EB317A788A41C8B446B216C /* libPods-MYRouter_Tests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -193,7 +193,6 @@
 				4FCD0252EAABDB0814B57365 /* Pods-MYRouter_Tests.debug.xcconfig */,
 				0543D8375D3B134B0CF819AB /* Pods-MYRouter_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -208,7 +207,6 @@
 				6003F586195388D20070C39A /* Sources */,
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
-				C9AC6EDA13034AF3F7A1A14D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -227,7 +225,6 @@
 				6003F5AA195388D20070C39A /* Sources */,
 				6003F5AB195388D20070C39A /* Frameworks */,
 				6003F5AC195388D20070C39A /* Resources */,
-				EC9A619FECE90391E6079FBF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -255,10 +252,11 @@
 				};
 			};
 			buildConfigurationList = 6003F585195388D10070C39A /* Build configuration list for PBXProject "MYRouter" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -338,42 +336,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C9AC6EDA13034AF3F7A1A14D /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MYRouter_Example/Pods-MYRouter_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/MYRouter/MYRouter.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MYRouter.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MYRouter_Example/Pods-MYRouter_Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EC9A619FECE90391E6079FBF /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MYRouter_Tests/Pods-MYRouter_Tests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/FBSnapshotTestCase/FBSnapshotTestCase.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSnapshotTestCase.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MYRouter_Tests/Pods-MYRouter_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
