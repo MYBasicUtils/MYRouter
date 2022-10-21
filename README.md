@@ -14,9 +14,9 @@ MYRouter可使用Cocoapods进行安装。
 
 MYRouter可以在任何地方进行初始化和注册。
 ```
-        [MYRouter defaultRouter] registerRouter:@"<#your router#>" handlerAction:^BOOL(NSDictionary *param) {
-        // do something
-    }];
+[MYRouter defaultRouter] registerRouter:@"<#your router#>" handlerAction:^BOOL(NSDictionary *param) {
+    // do something
+}];
 ```
 
 MYRouter提供了多种注册方式：
@@ -61,10 +61,10 @@ MYRouter提供了多种注册方式：
 ```
 添加之后，对于路由：/test/houseId123/roomId456 ,返回的参数中会带有：
 ```
-    {
-        "houseId":"houseId123",
-        "roomId" :"roomId456"   
-    }
+{
+    "houseId":"houseId123",
+    "roomId" :"roomId456"   
+}
 ```
 
 #### 1.1 优先级
@@ -75,7 +75,7 @@ MYRouter提供了多种注册方式：
 #### 1.2 MYRouter 默认schema
 MYRouter自带默认的schema为"default", 开发者可以使用以下方法重新配置：
 ```
-    [MYRouter setDefaultSchemaName:@"<#your schema#>"];
+[MYRouter setDefaultSchemaName:@"<#your schema#>"];
 ```
 
 
@@ -85,15 +85,15 @@ MYRouter自带默认的schema为"default", 开发者可以使用以下方法重�
 
 注册拦截器：
 ```
-     [[MYRouter defaultRouter] addInterceptorWithRouter:@"<#your interceptor router#>" paramName:@[@"paramName"] preAction:^BOOL(NSDictionary *param) {
-        // 当返回NO之后，router将不会进行跳转，但是该拦截器的postAction会执行
-        // 当返回NO之后，若之后还有拦截器，则会不会再执行后续的拦截器操作。
-        return NO;
-    } postAction:^BOOL(NSDictionary *param) {
-        // postAction 通常返回YES，主要用于一些前置拦截的数据回收工作
-        // 目前返回无特殊作用
-        return YES;
-    }];
+ [[MYRouter defaultRouter] addInterceptorWithRouter:@"<#your interceptor router#>" paramName:@[@"paramName"] preAction:^BOOL(NSDictionary *param) {
+    // 当返回NO之后，router将不会进行跳转，但是该拦截器的postAction会执行
+    // 当返回NO之后，若之后还有拦截器，则会不会再执行后续的拦截器操作。
+    return NO;
+} postAction:^BOOL(NSDictionary *param) {
+    // postAction 通常返回YES，主要用于一些前置拦截的数据回收工作
+    // 目前返回无特殊作用
+    return YES;
+}];
 ```
 如果注册多个拦截器，则会根据注册顺序调用preAction，逆序调用postAction。
 
@@ -101,3 +101,7 @@ MYRouter自带默认的schema为"default", 开发者可以使用以下方法重�
 
 拦截器是有顺序的，通常先注册的拦截器先调用。
 
+
+### 后续计划
+1. 添加通配符
+2. 列出结构图
