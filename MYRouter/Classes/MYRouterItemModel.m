@@ -19,7 +19,6 @@
 - (void)setPathString:(NSString *)pathString {
     _pathString = pathString;
     NSString *requestURL = [MYRouterUtils requestURLWithRouterURL:pathString inSchema:self.schema];
-    //TODO: wmy 处理为 host + path + keyvalue的形式
     self.router = [MYRouterUtils fullPathInRequestURL:requestURL];
     self.hostPathComponents = [MYRouterUtils pathWithOutParamInRequestURL:requestURL];
     self.requireParams = [MYRouterUtils reqireParams:requestURL];

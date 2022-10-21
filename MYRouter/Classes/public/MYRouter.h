@@ -114,11 +114,11 @@ FOUNDATION_EXPORT const NSInteger MYROUTER_PRIORITY_LOW;
 
 
 ///-------------------------------
-/// @name 日志控制
+/// @name 日志控制 TODO
 ///-------------------------------
-@interface MYRouter (Log)
+//@interface MYRouter (Log)
+//
+///// 设置是否开启router日志
+//+ (void)setRouterVerboseLogEnabled:(BOOL)enabled;
 
-/// 设置是否开启router日志
-+ (void)setRouterVerboseLogEnabled:(BOOL)enabled;
-
-@end
+//@end

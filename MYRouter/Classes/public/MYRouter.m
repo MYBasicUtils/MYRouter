@@ -148,7 +148,19 @@ static NSMutableDictionary<NSString *,MYRouter *> *MYGlobal_RouterMap = nil;
     routerItem.action = [[MYRouterAction alloc] initWithAction:actionBlock];
     
     [self.routerItems addObject:routerItem];
-    //TODO: wmy 当优先级有值时，需要对routerItems sort一下
+    if (priority) {
+        NSArray *sortArray = [self.routerItems sortedArrayUsingComparator:^NSComparisonResult(MYRouterItemModel *model1,MYRouterItemModel *model2) {
+            if (model1.priority > model2.priority) {
+                return NSOrderedAscending;
+            }else if (model1.priority < model2.priority){
+                return NSOrderedDescending;
+            }else {
+                return NSOrderedSame;
+            }
+        }];
+        [self.routerItems removeAllObjects];
+        [self.routerItems addObjectsFromArray:sortArray];
+    }
     
 }
 
@@ -161,6 +173,7 @@ static NSMutableDictionary<NSString *,MYRouter *> *MYGlobal_RouterMap = nil;
         router = [self defaultRouter];
     }
     [router registerRouter:routerURL priority:priority handlerAction:actionBlock];
+    
 }
 
 - (void)unRegisterRouter:(NSString *)router {
@@ -249,7 +262,6 @@ static NSMutableDictionary<NSString *,MYRouter *> *MYGlobal_RouterMap = nil;
 - (NSMutableArray<MYRouterItemModel *> *)routerItems {
     if (!_routerItems) {
         _routerItems = [NSMutableArray array];
-        //TODO: wmy 获取数据时，需要根据优先级对其进行排序
     }
     return _routerItems;
 }

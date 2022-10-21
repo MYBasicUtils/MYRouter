@@ -11,9 +11,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MYRouterUtils : NSObject
 
-/// 注册router时，是否为合法
-+ (NSString *)isValidRegisterRouter:(NSString *)router;
-
 /// 将请求的url转为标准格式
 + (NSString *)requestURLWithRouterURL:(NSString *)routeURL inSchema:(NSString *)schema;
 /// 完整的paths
@@ -22,8 +19,6 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)pathWithOutParamInRequestURL:(NSString *)requestURL;
 
 + (NSDictionary *)parametersInRequestURL:(NSString *)requestURL;
-
-+ (NSDictionary *)pathParamInRequestURL:(NSString *)requestURL isRouter:(NSString *)router;
 
 /// 从requestURL中转换path需要的参数
 + (NSArray *)reqireParams:(NSString *)requestURL;

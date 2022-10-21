@@ -40,7 +40,7 @@
 - (void)setUp {
     TestLog(@"---------- start test ----------");
     
-    [MYRouter setRouterVerboseLogEnabled:YES];
+//    [MYRouter setRouterVerboseLogEnabled:YES];
     [MYRouter setDefaultSchemaName:kRouterTestsSchema];
 }
 
@@ -154,9 +154,8 @@
 
 // 优先级
 - (void)testSchemaRouterOptionalWithPrority {
-    //TODO: wmy test 去除注释
-//    [[MYRouter defaultRouter] registerRouter:@"test://test1"
-//                               handlerAction:[self defaultHandlerAction]];
+    [[MYRouter defaultRouter] registerRouter:@"test://test1"
+                               handlerAction:[self defaultHandlerAction]];
     [[MYRouter defaultRouter] registerRouter:@"test://test1/:houseId/:roomId"
                                     priority:MYROUTER_PRIORITY_HIGH
                                handlerAction:[self defaultHandlerAction]];
@@ -167,8 +166,11 @@
     MYRouteAssertCanRoute();
     MYRouteAssertParameter(resultParam);
     
-//    [self route:@"test1://test1"];
-//    MYRouteAssertCanRoute();
+    [self route:@"test1://test1"];
+    MYRouteAssertCanRoute();
+    
+    BOOL isTrue = [MYRouter.defaultRouter.routerItems.firstObject.pathString isEqualToString:@"test://test1/:houseId/:roomId"];
+    XCTAssertTrue(isTrue);
 }
 
 

@@ -3,7 +3,6 @@
 //  MYRouter
 //
 //  Created by APPLE on 2022/10/10.
-//TODO: wmy 之后把component放在request中
 
 #import "MYRouterUtils.h"
 
@@ -11,15 +10,10 @@ NSString *kMYRouterWildcardCharacter = @"[\\w]+";
 
 @implementation MYRouterUtils
 
-+ (NSString *)isValidRegisterRouter:(NSString *)router {
-    //TODO: wmy
-    return nil;
-}
-
 + (NSString *)requestURLWithRouterURL:(NSString *)routeURL inSchema:(NSString *)schema {
     NSMutableString *requestURL = [NSMutableString string];
     NSString *tempRouteURL = routeURL;
-    //TODO: wmy 判断是否有schema，如果没有schema进行requestURL的全拼串
+    //TODO: 判断是否有schema，如果没有schema进行requestURL的全拼串
     if (!routeURL.length) {
         return [NSString stringWithFormat:@"%@://",schema];
     }
@@ -166,7 +160,6 @@ NSString *kMYRouterWildcardCharacter = @"[\\w]+";
         }
         return NO;
     }
-    //TODO: wmy 需要处理成只有/xxx的状态
     return NO;
 }
 

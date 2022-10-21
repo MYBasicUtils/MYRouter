@@ -30,9 +30,8 @@
         self.additionParameters = param;
         
         // 此处处理requestURL中的url。
-        //TODO: wmy 这里需要把url的参数都拿出来
         self.hostPathComponent = [MYRouterUtils fullPathInRequestURL:requestURL];
-        
+        // 把url的参数都拿出来
         self.params = [MYRouterUtils parametersInRequestURL:requestURL];
     }
     return self;

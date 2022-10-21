@@ -32,15 +32,13 @@
     if (!routerItems.count) {
         return response;
     }
-    //TODO: wmy routerItems 对优先级进行排序
-    
     
     for (NSObject<MYRouterItemProtocol> *routerItem in routerItems) {
         if ([routerItem matchRequest:request.hostPathComponent]) {
             // 处理router在其中的path中带的参数
             NSMutableArray<NSString *> *pathParams = [NSMutableArray<NSString *> array];
             if ([routerItem.hostPathComponents isEqualToString:@"/*"] || [routerItem.hostPathComponents isEqualToString:@"*"]) {
-                //TODO: wmy code here
+                // 不需要计算path参数
             } else {
                 // 计算path的参数
                 NSString *requestPath = [request.hostPathComponent substringFromIndex:routerItem.hostPathComponents.length];
