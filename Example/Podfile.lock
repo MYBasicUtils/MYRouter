@@ -1,0 +1,16 @@
+PODS:
+  - MYRouter (0.1.0)
+
+DEPENDENCIES:
+  - MYRouter (from `../`)
+
+EXTERNAL SOURCES:
+  MYRouter:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  MYRouter: 853f0f7700b5632501409c1aadcfd6a85683153a
+
+PODFILE CHECKSUM: 185dca468255baa93cefd8f1e404742c2a906624
+
+COCOAPODS: 1.10.2

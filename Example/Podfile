@@ -1,0 +1,10 @@
+
+target 'MYRouter_Example' do
+  pod 'MYRouter', :path => '../'
+
+  target 'MYRouter_Tests' do
+    inherit! :search_paths
+
+#    pod 'FBSnapshotTestCase'
+  end
+end
