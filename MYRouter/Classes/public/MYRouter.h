@@ -24,7 +24,10 @@ FOUNDATION_EXPORT const NSInteger MYROUTER_PRIORITY_LOW;
 
 /// 制定约定的动作，其动作需要对应的router地址和参数
 /// 返回是否可以被router
-- (BOOL)routerURL:(NSString *)routeURL WithParameters:(NSDictionary *)param;
+- (BOOL)routerURL:(NSString *)routeURL withParameters:(NSDictionary *)param;
+
+/// 制定约定动作，若schema为未注册
++ (BOOL)routerURL:(NSString *)routerURL withParameters:(NSDictionary *)param;
 
 - (instancetype)init NS_UNAVAILABLE;
 

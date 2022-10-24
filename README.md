@@ -101,7 +101,19 @@ MYRouter自带默认的schema为"default", 开发者可以使用以下方法重�
 
 拦截器是有顺序的，通常先注册的拦截器先调用。
 
+## 原理
+
+
+![MYRouter](./imgs/MYRouter.png)
+MYRouter 中维护了两个列表。其中，
+ - Regist Router中存放了将已注册的Router包装为 `MYRouterItemModel` 的模型列表。
+ - 注册拦截器时，会将拦截器的条件包装为MYRouterInterceptorCondition，每个拦截器包装为MYRouterInterceptor。MYRouter中Interceptors存放拦截器的列表。
+
+ ![OpenRouter](./imgs/OpenRouter.png)
+ 当需要打开一个router时，会将这个打开Router的请求包装为MYRouterRequest，之后将其放入MYRouterServer进行处理，最终结果包装为MYRouterResponse。
+
 
 ### 后续计划
 1. 添加通配符
 2. 列出结构图
+3. 跨进程通信
