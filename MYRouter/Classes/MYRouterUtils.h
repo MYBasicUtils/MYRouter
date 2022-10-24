@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface MYRouterUtils : NSObject
 
 /// 将请求的url转为标准格式
-+ (NSString *)requestURLWithRouterURL:(NSString *)routeURL inSchema:(NSString *)schema;
++ (NSString *)requestURLWithRouterURL:(NSString *)routeURL inScheme:(NSString *)scheme;
 /// 完整的paths
 + (NSString *)fullPathInRequestURL:(NSString *)requestURL;
 /// 去除参数的path

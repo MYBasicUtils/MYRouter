@@ -20,13 +20,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic, strong) MYRouterResponse *response;
 
-+ (instancetype)interceptorWithSchema:(NSString *)schema
++ (instancetype)interceptorWithScheme:(NSString *)scheme
                                router:(NSString *)router
                                 param:(NSArray<NSString *> *)paramName
                             preAction:(BOOL(^)(NSDictionary *param))action
                            postAction:(BOOL(^)(NSDictionary *param))postAction;
 
-- (instancetype)initWithSchema:(NSString *)schema
+- (instancetype)initWithScheme:(NSString *)scheme
                         router:(NSString *)router
                          param:(NSArray<NSString *> *)paramName
                      preAction:(BOOL(^)(NSDictionary *param))action

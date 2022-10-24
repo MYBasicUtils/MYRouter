@@ -12,7 +12,7 @@
 
 @protocol MYRouterItemProtocol
 
-@property (nonatomic, strong) NSString *schema;/**<  schema */
+@property (nonatomic, strong) NSString *scheme;/**<  scheme */
 @property (nonatomic, strong) NSString *pathString;/**<  原始路径 */
 @property (nonatomic, strong) NSString *router;/**< 修改过后的router  */ 
 

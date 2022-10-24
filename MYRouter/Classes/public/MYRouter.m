@@ -21,14 +21,14 @@ NSInteger const MYROUTER_PRIORITY_LOW = -0;
 
 BOOL MYGlobal_RouterLogEnabled = false;
 
-NSString *MYGlobal_RouterDefaultSchemaName = @"default";
+NSString *MYGlobal_RouterDefaultSchemeName = @"default";
 
 static NSMutableDictionary<NSString *,MYRouter *> *MYGlobal_RouterMap = nil;
 
 @interface MYRouter ()
 
 @property (nonatomic, strong) NSMutableArray<MYRouterItemModel *> *routerItems;/**<  路由 */
-@property (nonatomic, strong) NSString *schema;/**<  schema */
+@property (nonatomic, strong) NSString *scheme;/**<  scheme */
 @property (nonatomic, strong) NSMutableArray<MYRouterInterceptor *> *interceptors;/**< 拦截器  */
 
 @end
@@ -38,28 +38,28 @@ static NSMutableDictionary<NSString *,MYRouter *> *MYGlobal_RouterMap = nil;
 #pragma mark - life cycle
 
 + (instancetype)defaultRouter {
-    return [self routerWithSchema:MYGlobal_RouterDefaultSchemaName];
+    return [self routerWithScheme:MYGlobal_RouterDefaultSchemeName];
 }
 
-- (instancetype)initWithSchema:(NSString *)schema {
+- (instancetype)initWithScheme:(NSString *)scheme {
     if (self = [super init]) {
-        self.schema = schema;
+        self.scheme = scheme;
         static dispatch_once_t onceToken;
         dispatch_once(&onceToken, ^{
             MYGlobal_RouterMap = [NSMutableDictionary<NSString *,MYRouter *> dictionary];
         });
-        MYGlobal_RouterMap[schema] = self;
+        MYGlobal_RouterMap[scheme] = self;
     }
     return self;
 }
 
-+ (instancetype)routerWithSchema:(NSString *)schema {
-    if (!schema.length) {
++ (instancetype)routerWithScheme:(NSString *)scheme {
+    if (!scheme.length) {
         return nil;
     }
-    MYRouter *router = MYGlobal_RouterMap[schema];
+    MYRouter *router = MYGlobal_RouterMap[scheme];
     if (!router) {
-        router = [[self alloc] initWithSchema:schema];
+        router = [[self alloc] initWithScheme:scheme];
     }
     return router;
 }
@@ -71,7 +71,7 @@ static NSMutableDictionary<NSString *,MYRouter *> *MYGlobal_RouterMap = nil;
         return false;
     }
     // 这里需要拼为一个完整的reqeust-url
-    NSString *requestURL = [MYRouterUtils requestURLWithRouterURL:routeURL inSchema:self.schema];
+    NSString *requestURL = [MYRouterUtils requestURLWithRouterURL:routeURL inScheme:self.scheme];
     MYRouterRequest *request = [[MYRouterRequest alloc] initWithRequestURL:requestURL additionParameters:param];
     NSMutableArray<MYRouterInterceptor *> *matchInterceptors = [NSMutableArray array];
     BOOL interceptorSuccess = YES;
@@ -114,13 +114,13 @@ static NSMutableDictionary<NSString *,MYRouter *> *MYGlobal_RouterMap = nil;
     return response.isMatch;
 }
 
-#pragma mark - schema
+#pragma mark - scheme
 
-+ (void)setDefaultSchemaName:(NSString *)schemaName {
-    if (!schemaName.length) {
++ (void)setDefaultSchemeName:(NSString *)schemeName {
+    if (!schemeName.length) {
         return;
     }
-    MYGlobal_RouterDefaultSchemaName = schemaName;
+    MYGlobal_RouterDefaultSchemeName = schemeName;
 }
 
 #pragma mark - register
@@ -130,7 +130,7 @@ static NSMutableDictionary<NSString *,MYRouter *> *MYGlobal_RouterMap = nil;
 }
 
 + (void)registerRouter:(NSString *)routerURL handlerAction:(BOOL (^)(NSDictionary *))actionBlock {
-    MYRouter *router = MYGlobal_RouterMap[MYGlobal_RouterDefaultSchemaName];
+    MYRouter *router = MYGlobal_RouterMap[MYGlobal_RouterDefaultSchemeName];
     if (!router) {
         router = [self defaultRouter];
     }
@@ -142,7 +142,7 @@ static NSMutableDictionary<NSString *,MYRouter *> *MYGlobal_RouterMap = nil;
         return;
     }
     MYRouterItemModel *routerItem = [[MYRouterItemModel alloc] init];
-    routerItem.schema = self.schema;
+    routerItem.scheme = self.scheme;
     routerItem.pathString = router;
     routerItem.priority = priority;
     routerItem.action = [[MYRouterAction alloc] initWithAction:actionBlock];
@@ -164,11 +164,11 @@ static NSMutableDictionary<NSString *,MYRouter *> *MYGlobal_RouterMap = nil;
     
 }
 
-+ (void)registerRouter:(NSString *)routerURL priority:(NSInteger)priority toSchema:(NSString *)schema handlerAction:(BOOL (^)(NSDictionary *))actionBlock {
-    if (!schema.length || !routerURL.length || !actionBlock) {
++ (void)registerRouter:(NSString *)routerURL priority:(NSInteger)priority toScheme:(NSString *)scheme handlerAction:(BOOL (^)(NSDictionary *))actionBlock {
+    if (!scheme.length || !routerURL.length || !actionBlock) {
         return;
     }
-    MYRouter *router = MYGlobal_RouterMap[schema];
+    MYRouter *router = MYGlobal_RouterMap[scheme];
     if (!router) {
         router = [self defaultRouter];
     }
@@ -194,8 +194,8 @@ static NSMutableDictionary<NSString *,MYRouter *> *MYGlobal_RouterMap = nil;
     
 }
 
-+ (void)unRegisterRouter:(NSString *)routerURL inSchema:(NSString *)schema {
-    MYRouter *router = MYGlobal_RouterMap[schema];
++ (void)unRegisterRouter:(NSString *)routerURL inScheme:(NSString *)scheme {
+    MYRouter *router = MYGlobal_RouterMap[scheme];
     if (!router) {
         router = [self defaultRouter];
     }
@@ -211,7 +211,7 @@ static NSMutableDictionary<NSString *,MYRouter *> *MYGlobal_RouterMap = nil;
                        paramName:(NSArray<NSString *> *)paramName
                        preAction:(BOOL(^)(NSDictionary *param))preAction
                       postAction:(BOOL(^)(NSDictionary *param))postAction {
-    MYRouterInterceptor *interceptor = [MYRouterInterceptor interceptorWithSchema:self.schema router:router param:paramName preAction:preAction postAction:postAction];
+    MYRouterInterceptor *interceptor = [MYRouterInterceptor interceptorWithScheme:self.scheme router:router param:paramName preAction:preAction postAction:postAction];
     [self addInterceptor:interceptor];
 }
 

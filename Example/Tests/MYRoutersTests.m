@@ -10,7 +10,7 @@
 #import <MYRouter/MYRouter+Private.h>
 #import <MYRouter/MYRouter.h>
 
-#define kRouterTestsSchema @"testSchema"
+#define kRouterTestsScheme @"testScheme"
 
 #define MYRouteAssertCanRoute() XCTAssertTrue(self.didRoute,@"cannot route!");
 #define MYRouteAssertCanNotRoute() XCTAssertTrue(!self.didRoute,@"can route!");
@@ -41,7 +41,7 @@
     TestLog(@"---------- start test ----------");
     
 //    [MYRouter setRouterVerboseLogEnabled:YES];
-    [MYRouter setDefaultSchemaName:kRouterTestsSchema];
+    [MYRouter setDefaultSchemeName:kRouterTestsScheme];
 }
 
 - (void)tearDown {
@@ -128,21 +128,21 @@
 
 
 
-- (void)testSchemaRouter {
+- (void)testSchemeRouter {
     [[MYRouter defaultRouter] registerRouter:@"test://test1"
                                handlerAction:[self defaultHandlerAction]];
-    // 这里会忽略schema跳转
+    // 这里会忽略scheme跳转
     [self route:@"test1://test1"];
     MYRouteAssertCanRoute();
 }
 
 
-- (void)testSchemaRouterOptional {
+- (void)testSchemeRouterOptional {
     [[MYRouter defaultRouter] registerRouter:@"test://test1"
                                handlerAction:[self defaultHandlerAction]];
     [[MYRouter defaultRouter] registerRouter:@"test://test1/:houseId/:roomId"
                                handlerAction:[self defaultHandlerAction]];
-    // 这里会忽略schema跳转
+    // 这里会忽略scheme跳转
     [self route:@"test1://test1/123/1"];
     NSDictionary *resultParam = @{@"houseId" : @"123", @"roomId" : @"1"};
     MYRouteAssertCanRoute();
@@ -153,14 +153,14 @@
 }
 
 // 优先级
-- (void)testSchemaRouterOptionalWithPrority {
+- (void)testSchemeRouterOptionalWithPrority {
     [[MYRouter defaultRouter] registerRouter:@"test://test1"
                                handlerAction:[self defaultHandlerAction]];
     [[MYRouter defaultRouter] registerRouter:@"test://test1/:houseId/:roomId"
                                     priority:MYROUTER_PRIORITY_HIGH
                                handlerAction:[self defaultHandlerAction]];
 
-    // 这里会忽略schema跳转
+    // 这里会忽略scheme跳转
     [self route:@"test1://test1/123/1"];
     NSDictionary *resultParam = @{@"houseId" : @"123", @"roomId" : @"1"};
     MYRouteAssertCanRoute();

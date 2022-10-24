@@ -26,7 +26,7 @@ MYRouter提供了多种注册方式：
 - (void)registerRouter:(NSString *)router handlerAction:(BOOL (^)(NSDictionary *))actionBlock;
 
 /// 注册router，并规定router的动作
-/// @description 由于方法没有schema入口，因此使用默认schema进行注册
+/// @description 由于方法没有scheme入口，因此使用默认scheme进行注册
 + (void)registerRouter:(NSString *)router handlerAction:(BOOL (^)(NSDictionary *))actionBlock;
 
 /// 注册router，并规定router的动作
@@ -38,11 +38,11 @@ MYRouter提供了多种注册方式：
 /// 注册router，并规定router的动作
 /// @param router router
 /// @param priority 优先级
-/// @param schema schema
+/// @param scheme scheme
 /// @param actionBlock 动作
 + (void)registerRouter:(NSString *)router
               priority:(NSInteger)priority
-              toSchema:(NSString *)schema
+              toScheme:(NSString *)scheme
          handlerAction:(BOOL(^)(NSDictionary *param))actionBlock;
 ```
 
@@ -72,10 +72,10 @@ MYRouter提供了多种注册方式：
 在注册一定量的router规则后，有可能在跳转时match多个router，此时会默认根据注册的规则进行跳转，一旦有一个符合条件，后续即使有符合条件的router也不会再调用。
 若需要将某个优先级进行提前，可以将优先级调整为MYROUTER_PRIORITY_HIGH
 
-#### 1.2 MYRouter 默认schema
-MYRouter自带默认的schema为"default", 开发者可以使用以下方法重新配置：
+#### 1.2 MYRouter 默认scheme
+MYRouter自带默认的scheme为"default", 开发者可以使用以下方法重新配置：
 ```
-[MYRouter setDefaultSchemaName:@"<#your schema#>"];
+[MYRouter setDefaultSchemeName:@"<#your scheme#>"];
 ```
 
 

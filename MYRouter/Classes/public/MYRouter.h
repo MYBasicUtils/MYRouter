@@ -17,16 +17,16 @@ FOUNDATION_EXPORT const NSInteger MYROUTER_PRIORITY_LOW;
 @interface MYRouter : NSObject
 
 /// 返回一个给定的shema名称的实例
-- (instancetype)initWithSchema:(NSString *)schema NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithScheme:(NSString *)scheme NS_DESIGNATED_INITIALIZER;
 
 /// 返回一个给定的shema名称的示例
-+ (instancetype)routerWithSchema:(NSString *)schema;
++ (instancetype)routerWithScheme:(NSString *)scheme;
 
 /// 制定约定的动作，其动作需要对应的router地址和参数
 /// 返回是否可以被router
 - (BOOL)routerURL:(NSString *)routeURL withParameters:(NSDictionary *)param;
 
-/// 制定约定动作，若schema为未注册
+/// 制定约定动作，若scheme为未注册
 + (BOOL)routerURL:(NSString *)routerURL withParameters:(NSDictionary *)param;
 
 - (instancetype)init NS_UNAVAILABLE;
@@ -34,12 +34,12 @@ FOUNDATION_EXPORT const NSInteger MYROUTER_PRIORITY_LOW;
 @end
 
 ///-------------------------------
-/// @name Schema相关操作
+/// @name Scheme相关操作
 ///-------------------------------
 
-@interface MYRouter (Schema)
+@interface MYRouter (Scheme)
 
-+ (void)setDefaultSchemaName:(NSString *)schemaName;
++ (void)setDefaultSchemeName:(NSString *)schemeName;
 /// 返回一个默认的router
 + (instancetype)defaultRouter;
 
@@ -56,7 +56,7 @@ FOUNDATION_EXPORT const NSInteger MYROUTER_PRIORITY_LOW;
 - (void)registerRouter:(NSString *)router handlerAction:(BOOL (^)(NSDictionary *))actionBlock;
 
 /// 注册router，并规定router的动作
-/// @description 由于方法没有schema入口，因此使用默认schema进行注册
+/// @description 由于方法没有scheme入口，因此使用默认scheme进行注册
 + (void)registerRouter:(NSString *)router handlerAction:(BOOL (^)(NSDictionary *))actionBlock;
 
 /// 注册router，并规定router的动作
@@ -68,19 +68,19 @@ FOUNDATION_EXPORT const NSInteger MYROUTER_PRIORITY_LOW;
 /// 注册router，并规定router的动作
 /// @param router router
 /// @param priority 优先级
-/// @param schema schema
+/// @param scheme scheme
 /// @param actionBlock 动作
 + (void)registerRouter:(NSString *)router
               priority:(NSInteger)priority
-              toSchema:(NSString *)schema
+              toScheme:(NSString *)scheme
          handlerAction:(BOOL(^)(NSDictionary *param))actionBlock;
 
 /// 将已注册的router从列表中删除
 /// @param router router
 - (void)unRegisterRouter:(NSString *)router;
 
-/// 注销schema中的router
-+ (void)unRegisterRouter:(NSString *)router inSchema:(NSString *)schema;
+/// 注销scheme中的router
++ (void)unRegisterRouter:(NSString *)router inScheme:(NSString *)scheme;
 
 /// 注销所有的router
 + (void)unRegisterAllRouters;

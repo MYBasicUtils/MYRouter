@@ -10,18 +10,18 @@ NSString *kMYRouterWildcardCharacter = @"[\\w]+";
 
 @implementation MYRouterUtils
 
-+ (NSString *)requestURLWithRouterURL:(NSString *)routeURL inSchema:(NSString *)schema {
++ (NSString *)requestURLWithRouterURL:(NSString *)routeURL inScheme:(NSString *)scheme {
     NSMutableString *requestURL = [NSMutableString string];
     NSString *tempRouteURL = routeURL;
-    //TODO: 判断是否有schema，如果没有schema进行requestURL的全拼串
+    //TODO: 判断是否有scheme，如果没有scheme进行requestURL的全拼串
     if (!routeURL.length) {
-        return [NSString stringWithFormat:@"%@://",schema];
+        return [NSString stringWithFormat:@"%@://",scheme];
     }
-    // schema
-    [requestURL appendString:[NSString stringWithFormat:@"%@:/",schema]];
+    // scheme
+    [requestURL appendString:[NSString stringWithFormat:@"%@:/",scheme]];
     NSRange range = [tempRouteURL rangeOfString:@":/"];
     if (range.length != NSNotFound && range.length != 0) {
-        // 找到了，前面是schema，后面是host + path
+        // 找到了，前面是scheme，后面是host + path
         tempRouteURL = [tempRouteURL substringWithRange:NSMakeRange(range.location + 2, tempRouteURL.length - range.location -2)];
     }
     if (![tempRouteURL hasPrefix:@"/"]) {

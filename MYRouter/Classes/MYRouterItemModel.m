@@ -18,7 +18,7 @@
 
 - (void)setPathString:(NSString *)pathString {
     _pathString = pathString;
-    NSString *requestURL = [MYRouterUtils requestURLWithRouterURL:pathString inSchema:self.schema];
+    NSString *requestURL = [MYRouterUtils requestURLWithRouterURL:pathString inScheme:self.scheme];
     self.router = [MYRouterUtils fullPathInRequestURL:requestURL];
     self.hostPathComponents = [MYRouterUtils pathWithOutParamInRequestURL:requestURL];
     self.requireParams = [MYRouterUtils reqireParams:requestURL];

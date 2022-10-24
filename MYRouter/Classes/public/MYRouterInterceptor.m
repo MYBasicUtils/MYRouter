@@ -22,22 +22,22 @@
 
 @implementation MYRouterInterceptor
 
-+ (instancetype)interceptorWithSchema:(NSString *)schema
++ (instancetype)interceptorWithScheme:(NSString *)scheme
                                router:(NSString *)router
                                 param:(NSArray<NSString *> *)paramName
                             preAction:(BOOL(^)(NSDictionary *param))action
                            postAction:(BOOL(^)(NSDictionary *param))postAction {
-    return [[self alloc] initWithSchema:schema router:router param:paramName preAction:action postAction:postAction];
+    return [[self alloc] initWithScheme:scheme router:router param:paramName preAction:action postAction:postAction];
 }
 
-- (instancetype)initWithSchema:(NSString *)schema
+- (instancetype)initWithScheme:(NSString *)scheme
                         router:(NSString *)router
                          param:(NSArray<NSString *> *)paramName
                      preAction:(BOOL(^)(NSDictionary *param))action
                     postAction:(BOOL(^)(NSDictionary *param))postAction  {
     
     MYRouterInterceptorCondition *condition = [[MYRouterInterceptorCondition alloc] init];
-    condition.schema = schema;
+    condition.scheme = scheme;
     NSArray<NSString *> *urlParams = [MYRouterUtils reqireParams:router];
     condition.pathString = router;
     NSMutableArray *paramNames = [NSMutableArray arrayWithArray:paramName];
