@@ -66,6 +66,10 @@ static NSMutableDictionary<NSString *,MYRouter *> *MYGlobal_RouterMap = nil;
 
 #pragma mark - Event Response
 
++ (BOOL)routerURL:(NSString *)routerURL withParameters:(NSDictionary *)param {
+    return [[MYRouter defaultRouter] routerURL:routerURL WithParameters:param];
+}
+
 - (BOOL)routerURL:(NSString *)routeURL WithParameters:(NSDictionary *)param {
     if (!routeURL.length) {
         return false;
